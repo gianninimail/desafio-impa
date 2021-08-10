@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     //
+    //$PAGINATOR = 1;
     public function index() {
 
         return view('welcome');
@@ -16,9 +17,22 @@ class TaskController extends Controller
 
     public function all() {
 
-        $tasks = Task::all();
+        $tasks = Task::orderBy('title')->paginate(5);
 
         return view('task.all', compact('tasks'));
+    }
+
+    public function search(Request $request) {
+
+        $fields = $request->except('_token');
+
+        $filter = $request->filter;
+        //dd($filter);
+        $tasks = Task::where('title', '=', $filter)->orWhere('title', 'LIKE', "%{$filter}%")->paginate(5);
+        //$tasks = Task::where('title', '=', $filter)->orWhere('title', 'LIKE', "%{$filter}%")->toSql();
+        //dd($tasks);
+
+        return view('task.all', compact('tasks', 'fields'));
     }
 
     public function show($id) {
@@ -78,13 +92,15 @@ class TaskController extends Controller
         return view('task.edit', compact('task'));
     }
 
-    public function update($id) {
+    public function update(StoreUpdateTask $request, $id) {
 
         $task = Task::find($id);
         if (!$task) {
             return redirect()->back();
         }
 
-        return view('task.edit', compact('task'));
+        $task->update($request->all());
+
+        return redirect()->route('tasks.all')->with('msg', 'Task updated success!');
     }
 }

@@ -59,27 +59,58 @@
         </div>
         <div class="flex-center position-ref full-height">
             <table border="1">
+                <tr>
+                    <td colspan="4" align="center">
+                        <form action="{{ route('tasks.search') }}" method="post">
+                            @csrf
+                            <input type="text" name="filter" id="filter" placeholder="Filter" />
+                            <button type="submit">Search</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Finish at
+                    </th>
+                    <th>
+                        ...
+                    </th>
+                </tr>
                 @foreach($tasks as $task)
                     <tr>
-                        <th>
+                        <td>
                             {{ $task->title }}
-                        </th>
-                        <th>
+                        </td>
+                        <td>
                             {{ $task->description }}
-                        </th>
-                        <th>
+                        </td>
+                        <td>
                             {{ $task->finish_at }}
-                        </th>
-                        <th>
+                        </td>
+                        <td>
                             <a href="{{ route('tasks.show', $task->id) }}">Details</a>
                             |
                             <a href="{{ route('tasks.edit', $task->id) }}">Edit</a>
-                        </th>
+                        </td>
                     </tr>
                 @endforeach
             </table>
+            <div>
+                @if(isset($fields))
+                    {{ $tasks->appends($fields)->links() }}
+                @else
+                    {{ $tasks->links() }}
+                @endif
+            </div>
             <br />
         </div>
+
         <div class="content position-ref validation">
             @if(session('msg'))
                 <p>

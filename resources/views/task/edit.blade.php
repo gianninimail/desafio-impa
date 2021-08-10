@@ -69,8 +69,10 @@
         </div>
 
         <div class="flex-center position-ref full-height">
-            <form action="{{ route('tasks.store') }}" method="post">
+            <form action="{{ route('tasks.update', $task->id) }}" method="post">
                {{-- <input type="text" name="_token" value="{{ csrf_token() }}" />--}}
+                {{--<input type="hidden" name="_method" value="PUT">--}}
+                @method('put')
                 @csrf
                 <label for="title">Title</label>
                 <br />
@@ -78,11 +80,12 @@
                 <br />
                 <label for="description">Description</label>
                 <br />
-                <textarea name="description" id="description" cols="50" rows="5" placeholder="Description">{{ $task->description) }}</textarea>
+                <textarea name="description" id="description" cols="50" rows="5" placeholder="Description">{{ $task->description }}</textarea>
+                <input type="hidden" name="finish" id="finish" value="0" />
                 <br />
                 <label for="finish_at">Finish at</label>
                 <br />
-                <input type="datetime-local" name="finish_at"  id="finish_at" pattern="MM-DD-YYYY HH:mm" value="{{ $task->finish_at }}"/>
+                <input type="datetime-local" name="finish_at"  id="finish_at" value="{{ str_replace(' ', 'T', $task->finish_at) }}"/>
                 <br />
                 <br />
                 <br />

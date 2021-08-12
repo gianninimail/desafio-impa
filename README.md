@@ -46,7 +46,11 @@ Levando em consideração que o projeto esteja executando localmente na porta 80
 - Consulta de todas as tarefas:
   - Método GET : http://localhost:8000/api/tasks
 
-    <br />  
+    <br />
+- Consulta de todas as tarefas Por User ID:
+    - Método GET : http://localhost:8000/api/tasks/user/{id}
+
+      <br />
 - Detalhar uma determinada Tarefa pelo ID:
     - Método GET : http://localhost:8000/api/tasks/{id}
 

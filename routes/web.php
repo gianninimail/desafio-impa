@@ -1,10 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     TaskController
 };
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,15 +26,5 @@ Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update
 Route::put('/tasks/completed/{id}', [TaskController::class, 'completed'])->name('tasks.completed');
 Route::any('/tasks/search', [TaskController::class, 'search'])->name('tasks.search');
 
-//$router->get('/tasks', 'TaskController@all');
-
-
-$router->get('/api/', function () use ($router) {
-    return ["description: API de dados do Desafio proposto pelo IMPA para Edital.",
-        "version: 1",
-        "homepage: ",
-        "keywords: 'php', 'lumen', 'api', 'rest', 'server, 'http', 'json', 'mapaosc', 'ipea'",
-        "license: LGPL-3.0",
-        "authors: {Thiago Giannini Ramos}"
-    ];
-});
+Route::any('/login', [TaskController::class, 'login'])->name('login');
+Route::any('/register', [TaskController::class, 'login'])->name('register');

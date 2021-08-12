@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateTask;
-use App\Task;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller

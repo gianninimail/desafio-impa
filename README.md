@@ -1,8 +1,8 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src=".com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="" target="_blank"><img src="" width="400"></a></p>
 
 <p align="center">
-<a href=""><img src="linkdin-logo.png" width="50" alt="Perfil no Linkedin"></a>
-<a href=""><img src="lattes-logo.png" width="50" alt="Currículo Lattes"></a>
+<a href=""><img src="linkdin-logo.png" width="80" alt="Perfil no Linkedin"></a>
+<a href=""><img src="lattes-logo.png" width="80" alt="Currículo Lattes"></a>
 </p>
 
 ## Sobre a API Restful de Gerenciamento de Tarefas

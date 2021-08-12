@@ -1,8 +1,8 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src=".com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href=""><img src="linkdin-logo.png" alt="Perfil no Linkedin"></a>
+<a href=""><img src="lattes-logo.png" alt="Currículo Lattes"></a>
 </p>
 
 ## Sobre a API Restful de Gerenciamento de Tarefas
@@ -10,6 +10,16 @@
 Api desenvolvida como parte do Edital de Seleção para uma Vaga de Desenvolvedor Especialista em PHP/Laravel. 
 A API foi desenvolvida no intuito de prover um funcionalidades de gerenciamento de Tarefas do usuário.
 Sendo possível Listar, Cadastrar, Exibir, Atualizar, Deletar e mudar o status para Concluído.
+
+As tecnologias utilizadas para a implementação do projeto foram as suas versões mais atuais.
+A linguagem de programação foi PHP versão 8, o framework escolhido foi o Laravel versão 8, e o
+Banco de Dados para armazenamento das informações foi o MySQL versão 8 comunitária.
+
+Junto à API também foi implementado uma interface do usuário (UI) simples. Com intuido de mostrar
+de forma mais ituitiva um exemplo de sistema utilizando a API. Nessa UI foi utilizado também
+o Framework Laravel, com seu módulo Blade, no qual faz um papel falicilitador para o desenvolvedor
+criar rápidas paǵinas com Design elegante. Foi utilizado um pouco de CSS com o Framework Tailwindcss.
+Na qual o Blade já possui uma integração amigável.
 
 Para suporte do projeto em Servidor deve-se instalar os seguintes softwares:
 

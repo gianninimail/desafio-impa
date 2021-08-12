@@ -1,8 +1,8 @@
 <p align="center"><a href="" target="_blank"><img src="logo-sys.png" width="400"></a></p>
 
 <p align="center">
-<a href=""><img src="linkdin-logo.png" width="80" alt="Perfil no Linkedin"></a>
-<a href=""><img src="lattes.png" width="80" alt="Currículo Lattes"></a>
+<a href="http://br.linkedin.com/pub/thiago-ramos/33/128/aa9"><img src="linkdin-logo.png" width="80" alt="Perfil no Linkedin"></a>
+<a href="http://lattes.cnpq.br/7368155631620650"><img src="lattes.png" width="80" alt="Currículo Lattes"></a>
 </p>
 
 ## Sobre a API Restful de Gerenciamento de Tarefas

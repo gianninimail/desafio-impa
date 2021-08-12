@@ -27,7 +27,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //ROTAS Diretas
-Route::get('/api/tasks', [TaskController::class, 'apiGetAll']);
+Route::get('/api/tasks/', [TaskController::class, 'apiGetAll']);
+Route::get('/api/tasks/user/{id}', [TaskController::class, 'apiGetAllByUser']);
 Route::get('/api/tasks/{id}', [TaskController::class, 'apiGetById']);
 Route::put('/api/tasks/update/{id}', [TaskController::class, 'apiUpdate']);
 Route::put('/api/tasks/complete/{id}', [TaskController::class, 'apiComplete']);

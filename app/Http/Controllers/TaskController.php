@@ -117,6 +117,15 @@ class TaskController extends Controller
         return $tasks;
     }
 
+    public function apiGetAllByUser($id) {
+
+        $tasks = Task::where('user_id', $id)->get();
+        if (!$tasks) {
+            return response()->json(['Resposta' => 'Não existe nenhuma tarefa na Base de Dados!'], Response::HTTP_OK);
+        }
+        return $tasks;
+    }
+
     public function apiGetById($id) {
 
         $task = Task::find($id);

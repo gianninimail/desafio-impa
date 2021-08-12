@@ -19,7 +19,7 @@ class TaskController extends Controller
 
         $tasks = Task::orderBy('title')->paginate(5);
 
-        return view('task.all', compact('tasks'));
+        return view('task.dash', compact('tasks'));
     }
 
     public function search(Request $request) {
@@ -32,7 +32,7 @@ class TaskController extends Controller
         //$tasks = Task::where('title', '=', $filter)->orWhere('title', 'LIKE', "%{$filter}%")->toSql();
         //dd($tasks);
 
-        return view('task.all', compact('tasks', 'fields'));
+        return view('task.dash', compact('tasks', 'fields'));
     }
 
     public function show($id) {
@@ -42,7 +42,7 @@ class TaskController extends Controller
             return redirect()->route('tasks.all');
         }
 
-        return view('task.show', compact('task'));
+        return view('task.details', compact('task'));
     }
 
     public function new_task() {
@@ -89,7 +89,7 @@ class TaskController extends Controller
             return redirect()->back();
         }
 
-        return view('task.edit', compact('task'));
+        return view('task.update', compact('task'));
     }
 
     public function update(StoreUpdateTask $request, $id) {

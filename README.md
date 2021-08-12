@@ -1,8 +1,8 @@
-<p align="center"><a href="" target="_blank"><img src="" width="400"></a></p>
+<p align="center"><a href="" target="_blank"><img src="logo-sys.png" width="400"></a></p>
 
 <p align="center">
 <a href=""><img src="linkdin-logo.png" width="80" alt="Perfil no Linkedin"></a>
-<a href=""><img src="lattes-logo.png" width="80" alt="Currículo Lattes"></a>
+<a href=""><img src="lattes.png" width="80" alt="Currículo Lattes"></a>
 </p>
 
 ## Sobre a API Restful de Gerenciamento de Tarefas

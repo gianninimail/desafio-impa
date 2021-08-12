@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateTask;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
@@ -102,4 +103,75 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.all')->with('msg', 'Task updated success!');
     }
+
+    //ROTAS para acesso direto na API (RESTFull)
+    public function apiGetAll() {
+
+        $tasks = Task::all();
+        if (!$tasks) {
+            return response()->json(['Resposta' => 'Não existe nenhuma tarefa na Base de Dados!'], Response::HTTP_OK);
+        }
+        return $tasks;
+    }
+
+    public function apiGetById($id) {
+
+        $task = Task::find($id);
+        if (!$task) {
+            return response()->json(['Resposta' => 'Tarefa com ID passado não existe!'], Response::HTTP_OK);
+        }
+
+        return $task;
+    }
+
+    public function apiDelete($id) {
+
+        $task = Task::find($id);
+        if (!$task) {
+            return response()->json(['Resposta' => 'Tarefa com ID passado não existe!'], Response::HTTP_OK);
+        }
+
+        if($task->delete()) {
+            return response()->json(['Resposta' => 'Tarefa deletada com sucesso!'], Response::HTTP_OK);
+        }
+    }
+
+    public function apiUpdate(StoreUpdateTask $request, $id) {
+
+        $task = Task::find($id);
+        if (!$task) {
+            return response()->json(['Resposta' => 'Tarefa com ID passado não existe!'], Response::HTTP_OK);
+        }
+
+        $task = $task->update($request->all());
+        if ($task) {
+            return response()->json(['Resposta' => 'Tarefa atualizada com sucesso!'], Response::HTTP_OK);
+        }
+    }
+
+    public function apiComplete($id) {
+
+        $task = Task::find($id);
+        if (!$task) {
+            return response()->json(['Resposta' => 'Tarefa com ID passado não existe!'], Response::HTTP_OK);
+        }
+
+        $task->finish = true;
+        if ($task->update()) {
+            return response()->json(['Resposta' => 'Tarefa atualizada com sucesso!'], Response::HTTP_OK);
+        }
+    }
+
+    public function apiNew(StoreUpdateTask $request) {
+
+        $task = Task::create($request->all());
+
+        if (!$task) {
+            return response()->json(['Resposta' => 'Erro ao criar uma nova tarefa!'], Response::HTTP_OK);
+        }
+
+        return $task;
+    }
+
+
 }

@@ -25,7 +25,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/tasks/completed/{id}', [TaskController::class, 'completed'])->name('tasks.completed');
     Route::any('/tasks/search', [TaskController::class, 'search'])->name('tasks.search');
 });
+
 Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+
+//ROTAS Diretas
+Route::get('/api/tasks', [TaskController::class, 'apiGetAll']);
+Route::get('/api/tasks/{id}', [TaskController::class, 'apiGetById']);
+Route::put('/api/tasks/update/{id}', [TaskController::class, 'apiUpdate']);
+Route::put('/api/tasks/complete/{id}', [TaskController::class, 'apiComplete']);
+Route::post('/api/tasks', [TaskController::class, 'apiNew']);
+Route::delete('/api/tasks/{id}', [TaskController::class, 'apiDelete']);
+Route::get('/api/token', function () { return csrf_token();});
 
 
 //Route::any('/login', [TaskController::class, 'login'])->name('login');

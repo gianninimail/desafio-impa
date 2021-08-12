@@ -117,6 +117,7 @@
       <path value="$PROJECT_DIR$/vendor/codeat3/blade-grommet-icons" />
       <path value="$PROJECT_DIR$/vendor/davidhsianturi/blade-bootstrap-icons" />
       <path value="$PROJECT_DIR$/vendor/codeat3/blade-google-material-design-icons" />
+      <path value="$PROJECT_DIR$/vendor/laravel/breeze" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

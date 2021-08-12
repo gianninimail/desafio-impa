@@ -26,5 +26,11 @@ Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update
 Route::put('/tasks/completed/{id}', [TaskController::class, 'completed'])->name('tasks.completed');
 Route::any('/tasks/search', [TaskController::class, 'search'])->name('tasks.search');
 
-Route::any('/login', [TaskController::class, 'login'])->name('login');
-Route::any('/register', [TaskController::class, 'login'])->name('register');
+//Route::any('/login', [TaskController::class, 'login'])->name('login');
+//Route::any('/register', [TaskController::class, 'login'])->name('register');
+
+require __DIR__.'/auth.php';
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');

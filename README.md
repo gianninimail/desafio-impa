@@ -3,61 +3,78 @@
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About API Task
+## Sobre a API Restful de Gerenciamento de Tarefas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Api desenvolvida como parte do Edital de Seleção para uma Vaga de Desenvolvedor Especialista em PHP/Laravel. 
+A API foi desenvolvida no intuito de prover um funcionalidades de gerenciamento de Tarefas do usuário.
+Sendo possível Listar, Cadastrar, Exibir, Atualizar, Deletar e mudar o status para Concluído.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para suporte do projeto em Servidor deve-se instalar os seguintes softwares:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Apache 2.x
+- PHP 8.x
+- Composer 2.x
+- MySQL 8.x ( criação de um schema/db com o nome de "tarefas")
 
-## Learning Laravel
+Para execução do projeto deve-se executar os seguintes passos:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- git clone https://github.com/gianninimail/desafio-impa.git (Clonagem do projeto)
+- composer install (Dentro da pasta do projeto)
+- cp .env.exemplo .env (Para criar o arquivo de configuração da aplicação à partir do arquivo de exemplo)
+- php artisan key:generate (Para gerar a chave única da aplicação - requisito do Laravel)
+- gedit .env (Configuração do arquivo da aplicação para acesso ao BD e outros parâmetros adicionais)
+  - DB_CONNECTION=mysql
+  - DB_HOST=127.0.0.1
+  - DB_PORT=3306
+  - DB_DATABASE=
+  - DB_USERNAME=php
+  - DB_PASSWORD=
+  - APP_NAME=Laravel (nome da aplicação)
+- php artisan migrate (Comando para gerar as tabelas no Banco de Dados configurado no arquivo .env)
+- php -S localhost:8000 -t public (comando executado dentro da pasta do projeto para executar a aplicação localmente) 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Interfaces da API
+Levando em consideração que o projeto esteja executando localmente na porta 8000:
 
-## Laravel Sponsors
+- Consulta de todas as tarefas:
+  - Método GET : http://localhost:8000/api/tasks
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    <br />  
+- Detalhar uma determinada Tarefa pelo ID:
+    - Método GET : http://localhost:8000/api/tasks/{id}
 
-### Premium Partners
+      <br />  
+- Criar uma nova Tarefa:
+    - Método POST : http://localhost:8000/api/tasks
+    - Campos necessários no cabeçalho:
+      - X-CSRF-TOKEN: valor_do_token
+  - Campos necessários para o modelo:
+      - title 
+      - description
+      - finish
+      - finish_at
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
+      <br />  
+- Alterar uma nova Tarefa:
+    - Método PUT : http://localhost:8000/api/tasks/update/{id}
+    - Campos necessários no cabeçalho:
+        - X-CSRF-TOKEN: valor_do_token
+    - Campos necessários para o modelo:
+        - title
+        - description
+        - finish
+        - finish_at
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+        <br /> 
+- Mudar o Status de uma Tarefa para Completa pelo ID:
+    - Método PUT : http://localhost:8000/api/tasks/complete/{id}
+    - Campos necessários no cabeçalho:
+        - X-CSRF-TOKEN: valor_do_token
+      
+        <br /> 
+- Deletar uma Tarefa pelo ID
+    - Método DELETE : http://localhost:8000/api/tasks/{id}
+    - Campos necessários no cabeçalho:
+        - X-CSRF-TOKEN: valor_do_tok

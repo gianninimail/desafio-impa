@@ -1,10 +1,5 @@
 <p align="center"><a href="" target="_blank"><img src="logo-sys.png" width="400"></a></p>
 
-<p align="center">
-<a href="http://br.linkedin.com/pub/thiago-ramos/33/128/aa9"><img src="linkdin-logo.png" width="80" alt="Perfil no Linkedin"></a>
-<a href="http://lattes.cnpq.br/7368155631620650"><img src="lattes.png" width="80" alt="Currículo Lattes"></a>
-</p>
-
 ## Sobre a API Restful de Gerenciamento de Tarefas
 
 Api desenvolvida como parte do Edital de Seleção para uma Vaga de Desenvolvedor Especialista em PHP/Laravel. 
@@ -87,4 +82,11 @@ Levando em consideração que o projeto esteja executando localmente na porta 80
 - Deletar uma Tarefa pelo ID
     - Método DELETE : http://localhost:8000/api/tasks/{id}
     - Campos necessários no cabeçalho:
-        - X-CSRF-TOKEN: valor_do_tok
+        - X-CSRF-TOKEN: valor_do_token
+
+## Autoria
+<p >
+Produzido por Thiago Giannini Ramos em 2021 - 
+<a href="http://br.linkedin.com/pub/thiago-ramos/33/128/aa9"><img src="linkdin-logo.png" width="80" alt="Perfil no Linkedin"></a>
+<a href="http://lattes.cnpq.br/7368155631620650"><img src="lattes.png" width="80" alt="Currículo Lattes"></a>
+</p>

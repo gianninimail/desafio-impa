@@ -25,6 +25,7 @@
                             </textarea>
                             <br />
                             <input type="hidden" name="finish" id="finish" value="0" />
+                            <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
                             <label for="finish_at">Finish at</label>
                             <br />
                             <input type="datetime-local" name="finish_at"  id="finish_at" pattern="MM-DD-YYYY HH:mm"/>

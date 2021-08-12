@@ -11,6 +11,12 @@ class Task extends Model
 
     //Campos que estão disponíveis para consulta
     protected $fillable = [
-        'title', 'description', 'finish', 'finish_at'
+        'title', 'description', 'finish', 'finish_at', 'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+
+    }
 }

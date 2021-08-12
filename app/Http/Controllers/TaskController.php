@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateTask;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
@@ -18,7 +19,9 @@ class TaskController extends Controller
 
     public function all() {
 
-        $tasks = Task::orderBy('title')->paginate(5);
+        $user_id = Auth::user()->id;
+
+        $tasks = Task::where('user_id', $user_id)->orderBy('title')->paginate(5);
 
         return view('task.dash', compact('tasks'));
     }

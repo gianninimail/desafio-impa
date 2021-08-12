@@ -26,8 +26,6 @@ Route::middleware(['auth'])->group(function () {
     Route::any('/tasks/search', [TaskController::class, 'search'])->name('tasks.search');
 });
 
-Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
-
 //ROTAS Diretas
 Route::get('/api/tasks', [TaskController::class, 'apiGetAll']);
 Route::get('/api/tasks/{id}', [TaskController::class, 'apiGetById']);
@@ -41,6 +39,7 @@ Route::get('/api/token', function () { return csrf_token();});
 //Route::any('/login', [TaskController::class, 'login'])->name('login');
 //Route::any('/register', [TaskController::class, 'login'])->name('register');
 
+Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {

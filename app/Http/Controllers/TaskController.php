@@ -70,14 +70,13 @@ class TaskController extends Controller
 
     public function completed($id) {
 
-        dd('completando...');
-
         $task = Task::find($id);
         if (!$task) {
             return redirect()->route('tasks.all');
         }
 
-        $task->delete();
+        $task->finish = true;
+        $task->update();
 
         return redirect()->route('tasks.all');
     }

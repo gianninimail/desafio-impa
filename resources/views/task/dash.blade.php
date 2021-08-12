@@ -22,6 +22,7 @@
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Title</th>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Description</th>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Finish at</th>
+                            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Complete</th>
                             <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider"></th>
                         </tr>
                         </thead>
@@ -36,6 +37,13 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                                         {{ $task->finish_at }}
+                                    </td>
+                                    <td class="px-10 py-4 whitespace-no-wrap border-b text-red-900 border-gray-500 text-sm leading-5">
+                                        @if($task->finish)
+                                            @svg('gmdi-check-circle-tt', 'w-6 text-green-500')
+                                        @else
+                                            @svg('gmdi-check-circle-tt', 'w-6 text-red-500')
+                                        @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5 text-right">
                                         <a href="{{ route('tasks.show', $task->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Details</a>

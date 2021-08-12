@@ -14,6 +14,9 @@
                             <li><strong>Title: </strong>{{ $task->title }}</li>
                             <li><strong>Description: </strong>{{ $task->description }}</li>
                             <li><strong>Finish at: </strong>{{ $task->finish_at }}</li>
+                            @if($task->finish)
+                                <li><strong>Task Complete: </strong>{{ $task->finish_at }}</li>
+                            @endif
                         </ul>
                         <form action="{{ route('tasks.delete', $task->id) }}" method="post">
                             @csrf

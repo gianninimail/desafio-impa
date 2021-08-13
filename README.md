@@ -16,6 +16,9 @@ o Framework Laravel, com seu módulo Blade, no qual faz um papel falicilitador p
 criar rápidas paǵinas com Design elegante. Foi utilizado um pouco de CSS com o Framework Tailwindcss.
 Na qual o Blade já possui uma integração amigável.
 
+Uma demostração do Projeto pode ser avaliada em ambiente Teste implantada no Heroku:
+    - URL: http://tasksmanager-app.herokuapp.com
+
 Para suporte do projeto em Servidor deve-se instalar os seguintes softwares:
 
 - Apache 2.x
@@ -40,7 +43,55 @@ Para execução do projeto deve-se executar os seguintes passos:
 - php artisan migrate (Comando para gerar as tabelas no Banco de Dados configurado no arquivo .env)
 - php -S localhost:8000 -t public (comando executado dentro da pasta do projeto para executar a aplicação localmente) 
 
-## Interfaces da API
+## Interfaces da API execuntando em ambiente de Teste no Heroku
+Levando em consideração que o projeto esteja executando localmente na porta 8000:
+
+- Consulta de todas as tarefas:
+  - Método GET : http://tasksmanager-app.herokuapp.com/api/tasks
+
+    <br />
+- Consulta de todas as tarefas Por User ID:
+    - Método GET : http://tasksmanager-app.herokuapp.com/api/tasks/user/{id}
+
+      <br />
+- Detalhar uma determinada Tarefa pelo ID:
+    - Método GET : http://tasksmanager-app.herokuapp.com/api/tasks/{id}
+
+      <br />  
+- Criar uma nova Tarefa:
+    - Método POST : http://tasksmanager-app.herokuapp.com/api/tasks
+    - Campos necessários no cabeçalho:
+      - X-CSRF-TOKEN: valor_do_token
+  - Campos necessários para o modelo:
+      - title 
+      - description
+      - finish
+      - finish_at
+
+      <br />  
+- Alterar uma nova Tarefa:
+    - Método PUT : http://tasksmanager-app.herokuapp.com/api/tasks/update/{id}
+    - Campos necessários no cabeçalho:
+        - X-CSRF-TOKEN: valor_do_token
+    - Campos necessários para o modelo:
+        - title
+        - description
+        - finish
+        - finish_at
+
+        <br /> 
+- Mudar o Status de uma Tarefa para Completa pelo ID:
+    - Método PUT : http://tasksmanager-app.herokuapp.com/api/tasks/complete/{id}
+    - Campos necessários no cabeçalho:
+        - X-CSRF-TOKEN: valor_do_token
+      
+        <br /> 
+- Deletar uma Tarefa pelo ID
+    - Método DELETE : http://tasksmanager-app.herokuapp.com/api/tasks/{id}
+    - Campos necessários no cabeçalho:
+        - X-CSRF-TOKEN: valor_do_token
+
+## Interfaces da API execuntando em Ambiente Local
 Levando em consideração que o projeto esteja executando localmente na porta 8000:
 
 - Consulta de todas as tarefas:

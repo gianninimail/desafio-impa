@@ -96,6 +96,7 @@
                 <div class="pb-0 flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
+                            @thiago giannini ramos <blockquote></blockquote>
                             <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                  viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
                                 @svg('fab-linkedin-in')
